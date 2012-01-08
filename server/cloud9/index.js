@@ -62,9 +62,9 @@ exports.main = function(options) {
         var serverOptions = {
             workspaceDir: projectDir,
             davPrefix: "/workspace",
-            baseUrl: "",
+            baseUrl: options.baseUrl,
             debug: options.debug,
-            staticUrl: "/static",
+            staticUrl: options.baseUrl +"/static",
             workspaceId: name,
             name: name,
             version: options.version
