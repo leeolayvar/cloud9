@@ -91,8 +91,8 @@ exports.main = function(options) {
     }));
     
     server.use(ideProvider(projectDir, server, sessionStore));
-    server.use(middleware.staticProvider(Path.normalize(__dirname + "/../../support"), "/static/support"));
-    server.use(middleware.staticProvider(Path.normalize(__dirname + "/../../client"), "/static"));
+    server.use(middleware.staticProvider(Path.normalize(__dirname + "/../../support"), options.baseUrl +"/static/support"));
+    server.use(middleware.staticProvider(Path.normalize(__dirname + "/../../client"), options.baseUrl +"/static"));
 
     //obfuscate process rights if configured
     if (group)
