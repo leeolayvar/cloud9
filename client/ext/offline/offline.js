@@ -48,13 +48,14 @@ module.exports = ext.register("ext/offline/offline", {
      * Init method to create the offline logic
      */
     init : function(){
+	var baseUrl = window.cloud9config.baseUrl
         var _self   = this;
-        var offline = this.offline = new Offline("cloud9", "/static/ext/offline/ping.txt");
+        var offline = this.offline = new Offline("cloud9", baseUrl+ "/static/ext/offline/ping.txt");
         var sync    = this.sync    = new Sync("cloud9");
         
         // preload the offline image programmatically:
         var img = new Image();
-        img.src = "/static/style/images/offline.png";
+        img.src = baseUrl +"/static/style/images/offline.png";
 
         //Replace http checking because we already have a socket
         //offline.isSiteAvailable = function(){};
