@@ -33,6 +33,7 @@ exports.main = function(options) {
 
         var socketIo = IO.listen(server);
         socketIo.enable("browser client minification");
+        socketIo.set("resource", options.baseUrl +"/socket.io");
         socketIo.set("log level", 1);
         socketIo.set("close timeout", 7);
         socketIo.set("heartbeat timeout", 2.5);

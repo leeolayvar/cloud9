@@ -201,6 +201,7 @@ Ide.DEFAULT_PLUGINS = [
                 davPrefix: _self.options.davPrefix,
                 workspaceDir: _self.options.workspaceDir,
                 debug: _self.options.debug,
+                baseUrl: _self.options.baseUrl,
                 staticUrl: staticUrl,
                 sessionId: req.sessionID, // set by connect
                 workspaceId: _self.options.workspaceId,

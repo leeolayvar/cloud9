@@ -104,8 +104,15 @@ define(function(require, exports, module) {
         });
 
         ide.addEventListener("extload", function() {
+            var resourceUrl = window.cloud9config.baseUrl +"/socket.io";
+            // Note that we slice off the first character if needed.
+            if (resourceUrl.slice(0, 1) == "/") {
+                resourceUrl = resourceUrl.slice(1);
+            }
             // fire up the socket connection:
             var options = {
+                // Added to handle baseUrl support.
+                "resource": resourceUrl,
                 "remember transport": false,
                 transports:  ["websocket", "htmlfile", "xhr-multipart", "xhr-polling"],
                 reconnect: false,
